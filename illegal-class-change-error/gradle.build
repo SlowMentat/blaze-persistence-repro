@@ -1,0 +1,43 @@
+
+plugins {
+	id 'org.springframework.boot' version '2.4.4'
+	id 'war'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+apply plugin: 'war'
+//apply plugin: 'org.springframework.boot'
+//apply plugin: 'io.spring.dependency-management'
+
+group = 'com.app'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+//blazePersistenceVersion = '1.5.1'
+
+
+//bootWar {
+//    archiveFileName = 'spring-boot-application.war'
+//    archiveVersion =  '1.0'
+//}
+
+sourceSets.main.resources {
+	//srcDirs = ["src/main/java/app/resources","src/test/java/app/resources"]
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+war {
+	enabled=true
+}
